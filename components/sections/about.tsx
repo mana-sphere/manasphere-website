@@ -2,22 +2,13 @@
 
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { useParallax } from "@/hooks/useParallax";
+
+import { textVariants } from "@/utils/motion";
 
 export default function About() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.5,
-        duration: 0.8,
-        ease: [0.2, 0.65, 0.3, 0.9],
-      },
-    }),
-  };
+  const { ref: aboutRef, y: y1 } = useParallax();
 
   // Handle mouse movement
   const handleMouseMove = (event: MouseEvent) => {
@@ -33,7 +24,12 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="min-h-screen flex items-center">
+    <motion.section
+      id="about"
+      className="min-h-screen flex items-center"
+      style={{ y: y1 }}
+      ref={aboutRef}
+    >
       <div className="flex items-center justify-between max-w-[90rem] mx-auto py-20 px-8">
         <div className="hidden md:block relative w-1/3 mr-40">
           <svg
@@ -230,6 +226,6 @@ export default function About() {
           </motion.p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

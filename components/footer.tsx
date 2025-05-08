@@ -2,24 +2,19 @@
 
 import Link from "next/link";
 import { Send, Linkedin, Twitter } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useTransform } from "framer-motion";
+import { useParallax } from "@/hooks/useParallax";
 
 export default function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: footerRef,
-    offset: ["start end", "end end"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [100, 0]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [50, 0]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [75, 0]);
+  const { ref: footerRef, y: y1 } = useParallax();
+  const y2 = useTransform(y1, [100, 0], [50, 0]);
+  const y3 = useTransform(y1, [100, 0], [75, 0]);
 
   return (
-    <footer
+    <motion.footer
       ref={footerRef}
       className="w-full bg-[#221929] text-white py-8 mt-auto relative overflow-hidden"
+      style={{ y: y1 }}
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -66,7 +61,7 @@ export default function Footer() {
                     support@manasphere.co
                   </a>
                 </li>
-                <li className="text-gray-400">+91 1023151360</li>
+                <li className="text-gray-400">+91 8383860264</li>
               </ul>
             </div>
           </motion.div>
@@ -147,6 +142,6 @@ export default function Footer() {
           © {new Date().getFullYear()} Manasphere. All rights reserved.
         </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

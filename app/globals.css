@@ -134,3 +134,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+::-moz-selection {
+  color: rgb(232, 224, 169);
+  background: rgb(52, 44, 59);
+}
+
+::selection {
+  color: rgb(232, 224, 169);
+  background: rgb(52, 44, 59);
+}

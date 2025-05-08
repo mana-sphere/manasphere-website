@@ -19,14 +19,14 @@ export interface Game {
       id: 2,
       index: "02",
       title: "coming soon",
-      description: "Our second title is currently in development. This ambitious project will push the boundaries of what's possible in interactive entertainment, with groundbreaking mechanics and stunning visuals.",
+      description: "Not in kitchen yet, but we are working on it. Stay tuned for more updates.",
       status: 'coming-soon'
     },
     {
       id: 3,
       index: "03",
       title: "coming soon",
-      description: "The third installment in our lineup is shrouded in mystery. While details remain classified, we can promise an experience that will challenge conventions and deliver unforgettable moments.",
+      description: "Not in kitchen yet, but we are working on it. Stay tuned for more updates.",
       status: 'coming-soon'
     }
   ];

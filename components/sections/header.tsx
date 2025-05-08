@@ -43,9 +43,21 @@ export default function Header() {
         {/* Main Heading and Tagline Container */}
         <div className="flex flex-col items-center justify-center text-center w-full px-4 pt-62">
           <div className="z-10">
+            <motion.div
+              className="bg-[#2f243b] text-[#ac9ac0] rounded-full px-3 py-1 mb-4 inline-block border-2"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+            >
+              <p className="text-sm">Site under developmnet</p>
+            </motion.div>
+
             {/* Main Heading */}
             <motion.h1
-              className="text-6xl md:text-8xl tracking-wide mb-4"
+              className="text-4xl md:text-5xl tracking-wide mb-4 leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -53,11 +65,31 @@ export default function Header() {
                 ease: "easeOut",
               }}
             >
-              MANASPHERE
+              Revolutionizing{" "}
+              <span
+                style={{
+                  background: `linear-gradient(to right, #EEBB9B, #6143C3)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Web3
+              </span>{" "}
+              Gaming <br /> with{" "}
+              <span
+                style={{
+                  background: `linear-gradient(to right, #EEBB9B, #6143C3)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Telegram{" "}
+              </span>
+              Mini-Games
             </motion.h1>
 
             {/* Subheading with Gradient */}
-            <motion.p
+            {/* <motion.p
               className="text-lg md:text-xl"
               style={{
                 background: `linear-gradient(to right, #EEBB9B, #6143C3)`,
@@ -73,7 +105,7 @@ export default function Header() {
               }}
             >
               Revolutionizing Web3 Gaming with Telegram Mini-Games
-            </motion.p>
+            </motion.p> */}
           </div>
         </div>
 
